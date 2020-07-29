@@ -1,0 +1,61 @@
+{{>header}}
+	<div style="width:60%;position:relative; left:20%;">
+		<section class="card">
+			<section class="card-body">
+				<h2 class="car-title">{{receta.titulo}}</h2>
+				<h5 style="color:grey;" class="car-subtitle">{{receta.autor}}</h5>
+				<ul>
+					{{#each receta.ingredientes}}
+						<li>{{this}}</li>
+					{{/each}}
+				</ul>
+				<p class="procedimiento">
+					{{#each receta.procedimiento}}
+						{{this}}<br>
+					{{/each}} 
+				</p>
+				<a href="/recetas" class="card-link">Volver</a>
+				<button type="button" class="btn" data-toggle="modal" data-target="#editarModal" style="color:Blue;">Editar</button>
+			</section>
+		</section>
+	</div>
+
+<div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+    	<div class="modal-content">
+    		<form method="post" action="/update" class="form-gruop">
+	      		<div class="modal-header">
+	      			<h2>Panel de edicion</h2>
+	        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          			<span aria-hidden="true">&times;</span>
+	        		</button>
+	      		</div>
+	    		<div class="modal-body">
+	    			<label for="nTitulo">Titulo</label>
+	        		<input id="nTitulo" class="form-control" type="text" name="nuevo_titulo" value="{{receta.titulo}}">
+
+	        		<label for="nAutor">Autor</label>
+	        		<input type="text" id="nAutor" class="form-control" name="nuevo_autor" value="{{receta.autor}}" readonly="">
+
+	    			<label for="nIngredientes">Ingredientes</label>
+	        		<input id="nIngredientes"class="form-control" type="text" name="nuevo_ingredientes" value="{{receta.ingredientes}}">
+
+	        		<label for="nProcedimiento">Procedimiento</label>
+					<textarea id="nProcedimiento" class="form-control" name="nuevo_procedimiento">{{receta.procedimiento}}</textarea>
+
+					<label for="nDescripcion">Descripcion</label>
+					<textarea id="nDescripcion" class="form-control" name="nuevo_descripcion">{{receta.descripcion}}</textarea>
+
+	    		</div>
+	    		<div class="modal-footer">
+	    			<input type="hidden" name="id" value="{{receta._id}}">
+	        		<button type="submit" class="btn btn-primary">Guardar</button>
+	    		</div>
+    		</form>
+    	</div>
+
+  	</div>
+</div>
+
+
+{{>footer}}

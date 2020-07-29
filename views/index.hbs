@@ -1,0 +1,36 @@
+{{>header}}
+
+<h1>Recetas online</h1>
+
+<section class="card">
+	<section class="card-body">
+		<form action="/" method="post" class="form-group">
+			<h5 class="card-title">nueva receta</h5>
+
+			<label for="titulo">Titulo</label>
+			<input type="text" id="titulo" class="form-control" name="titulo" placeholder="mi receta favorita">
+
+			<label for="autor">Autor</label>
+			<input type="text" id="autor" class="form-control" name="autor" placeholder="Edwin Palacios">
+
+			<label for="descripcion">Descripción</label>
+			<input type="text" id="descripcion" class="form-control" name="descripcion" placeholder="Breve descripcion">
+
+			<label for="ingredientes">Ingredientes</label>
+			<input type="text" id="ingredientes" class="form-control" name="ingredientes" placeholder="ingrediente 1,ingrediente 2, ...">
+
+			<label for="procedimiento">Procedimiento</label>
+			<textarea class="form-control" id="procedimiento" name="procedimiento" placeholder="paso 1. xxxxx \n paso 2. xxxxx"></textarea>
+
+			<input type="submit" class="btn" name="" value="Registrar">
+		</form>
+	</section>
+	<section class="card-footer">
+		
+	</section>
+	
+</section>
+<a href="/recetas" class="btn btn-success">ver recetas</a>
+
+
+{{>footer}}
